@@ -5,7 +5,7 @@ const developmentMode = true
 
 var url = "http://localhost:5000"
 if(!developmentMode){
-    url = "http://api-2-atelier-technique-geodecouverte.vercel.app"
+    url = "https://api-2-atelier-technique-geodecouverte.vercel.app"
 }
 
 const RADIUS = 200
@@ -20,6 +20,24 @@ const datas = {
         geometry : {
             lat : 23.634501,
             lng : -102.552784
+        }
+    },
+    marseille : {
+        geometry : {
+            lat : 43.296482,
+            lng : 5.36978
+        }
+    },
+    nice : {
+        geometry : {
+            lat : 43.7101728,
+            lng : 7.2619532
+        }
+    },
+    antibes : {
+        geometry : {
+            lat : 43.5806503296,
+            lng : 7.12767219543
         }
     }
 }
@@ -38,7 +56,7 @@ let deployementTest = new class DeployementTest {
                 {
                     lat : _lat ,
                     lng : _lng ,
-                    image : fs.readFileSync(`./${nameFileToAdd}.png`)
+                    image : fs.readFileSync(`./data/${nameFileToAdd}.png`)
                 }
             )
         })
@@ -99,9 +117,12 @@ let deployementTest = new class DeployementTest {
 
 deployementTest.addImage("mexique", datas.mexique.geometry.lat, datas.mexique.geometry.lng)
 deployementTest.addImage("inde", datas.inde.geometry.lat, datas.inde.geometry.lng)
-deployementTest.getAll()
-
-/*deployementTest.getAllWithLatLng(GEOMETRY.lat, GEOMETRY.lng, RADIUS)
+deployementTest.addImage("antibes", datas.antibes.geometry.lat, datas.antibes.geometry.lng)
+deployementTest.addImage("marseille", datas.marseille.geometry.lat, datas.marseille.geometry.lng)
+deployementTest.addImage("nice", datas.nice.geometry.lat, datas.nice.geometry.lng)
+deployementTest.addImage("nice2", datas.nice.geometry.lat, datas.nice.geometry.lng)
+/*deployementTest.getAll()
+deployementTest.getAllWithLatLng(datas.inde.geometry.lat, datas.inde.geometry.lng, RADIUS)
 deployementTest.searchByCity("Marseille",RADIUS)
 deployementTest.searchByCountry("Etat-Unis", RADIUS)
 deployementTest.searchByCity("Nice", RADIUS)
