@@ -1,6 +1,6 @@
 # API_atelier_technique
 
-API Rest utilisé dans le cadre des ateliers technique. 
+API Rest utilisé dans le cadre des ateliers techniques. 
 L'API est hébergé sur Vercel. 
 
 # Lien vers API : 
@@ -9,40 +9,43 @@ L'API est hébergé sur Vercel.
 >
 > # GET
 > 
-> /images  : récupération de toutes les images
+> /images/all  : récupération de toutes les images
 > 
 > /image/<FileName.png>  : récupération / affichage d'une image
 > 
-> /images/city_filter  : récupération de toutes les images avec trie sur la ville 
-> * paramètres : req.body.city
+> /images/city_filter/:city/:radius  : récupération de toutes les images avec trie sur la ville par rapport à un rayon
 >
-> /images/country_filter  : récupération de toutes les images avec trie sur le pays 
-> * paramètres : req.body.country
+> /images/country_filter/:country/:radius  : récupération de toutes les images avec trie sur le pays par rapport à un rayon
+>
+> /images/radius_filter/:lat/:lng/:radius : récupération de toutes les images avec trie par rapport à un rayon
 >
 > # POST
 >
 > /images/add  :  ajout d'une image à la base de donnée
-> * paramètres : req.body.image
+> * paramètres : req.body.image, req.body.lat, req.body.lng
+> * retour : { reponse : < EXECUTION DE LA REQUETE >} -> (true si succès, false sinon)
+> 
 > 
 >
 
 
 # Format des données : 
 
-{
-    "Images": 
+```
+"Images": 
     [
       {
-        "id": <id>,
-        "city": <city>,
-        "country": <country>,
-        "url": <url>
+        "id": < id >,
+        "city": < city >,
+        "country": < country >,
+        "filename" : < filename >,
+        "geometry" : {
+            "lat" : < latitude >,
+            "lng" : < longitude >,
+        }
+        "url": < url >,
+        "date" : < date >
       },
-      {
-        "id": <id>,
-        "city": <city>,
-        "country": <country>,
-        "url": <url>
-      }
+      {...}
     ]
-}
+```
