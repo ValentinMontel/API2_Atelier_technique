@@ -1,7 +1,7 @@
 const fetch = require('node-fetch-commonjs')
 const fs = require('fs')
 
-const developmentMode = false
+const developmentMode = true
 
 var url = "http://localhost:5000"
 if(!developmentMode){
@@ -96,11 +96,11 @@ let deployementTest = new class DeployementTest {
     }
 }
 
-/*
+
 deployementTest.addImage("mexique", datas.mexique.geometry.lat, datas.mexique.geometry.lng)
 deployementTest.addImage("inde", datas.inde.geometry.lat, datas.inde.geometry.lng)
 deployementTest.getAll()
-*/
+
 /*deployementTest.getAllWithLatLng(GEOMETRY.lat, GEOMETRY.lng, RADIUS)
 deployementTest.searchByCity("Marseille",RADIUS)
 deployementTest.searchByCountry("Etat-Unis", RADIUS)
