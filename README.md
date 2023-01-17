@@ -5,7 +5,7 @@ L'API est hébergé sur Vercel.
 
 # Lien vers API : 
 >
-> https://api-atelier-technique.vercel.app
+> api-2-atelier-technique-geodecouverte.vercel.app
 >
 > # GET
 > 
