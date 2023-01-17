@@ -1,9 +1,16 @@
 const express = require('express')
 const dbManagerObject = new require('./dbManager.js').dbManager
+const bodyParser = require('body-parser')
 
 const API = express()
 
-API.use(express.json())
+var bodyParserParams = {
+    limit : 100000000
+}
+API.use(bodyParser.json(bodyParserParams))
+
+bodyParserParams.extended = true
+API.use(bodyParser.urlencoded(bodyParserParams))
 
 API.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
@@ -15,8 +22,6 @@ API.use((req, res, next) => {
 })
 
 API.use('/image', express.static('images'))
-
-API.use(express.urlencoded({ extended: true }))
 
 API.get('/images/radius_filter/:lat/:lng/:radius', (req, res, next)=>{
     res.json({ images : dbManagerObject.getImagesWithLatLng(req.params.lat, req.params.lng, req.params.radius)})

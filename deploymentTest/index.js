@@ -5,19 +5,29 @@ const developmentMode = false
 
 var url = "http://localhost:5000"
 if(!developmentMode){
-    url = "https://api-atelier-technique.vercel.app"
+    url = "api-2-atelier-technique-geodecouverte.vercel.app"
 }
 
 const RADIUS = 200
-const GEOMETRY = {
-    lat : 40.4167754,
-    lng : -3.7037902
+const datas = {
+    inde : {
+        geometry : {
+            lat : 20.593684,
+            lng : 78.962880
+        }
+    },
+    mexique : {
+        geometry : {
+            lat : 23.634501,
+            lng : -102.552784
+        }
+    }
 }
 
 let deployementTest = new class DeployementTest {
     constructor() {}
 
-    addImage(nameFileToAdd){
+    addImage(nameFileToAdd, _lat, _lng){
         fetch(`${url}/images/add`, {
             method: 'POST',
             headers: {
@@ -26,8 +36,8 @@ let deployementTest = new class DeployementTest {
             },
             body: JSON.stringify(
                 {
-                    lat : GEOMETRY.lat ,
-                    lng : GEOMETRY.lng ,
+                    lat : _lat ,
+                    lng : _lng ,
                     image : fs.readFileSync(`./${nameFileToAdd}.png`)
                 }
             )
@@ -86,12 +96,14 @@ let deployementTest = new class DeployementTest {
     }
 }
 
-
-deployementTest.addImage("imageTest")
+/*
+deployementTest.addImage("mexique", datas.mexique.geometry.lat, datas.mexique.geometry.lng)
+deployementTest.addImage("inde", datas.inde.geometry.lat, datas.inde.geometry.lng)
 deployementTest.getAll()
-deployementTest.getAllWithLatLng(GEOMETRY.lat, GEOMETRY.lng, RADIUS)
+*/
+/*deployementTest.getAllWithLatLng(GEOMETRY.lat, GEOMETRY.lng, RADIUS)
 deployementTest.searchByCity("Marseille",RADIUS)
 deployementTest.searchByCountry("Etat-Unis", RADIUS)
 deployementTest.searchByCity("Nice", RADIUS)
 deployementTest.searchByCountry("France", RADIUS)
-
+*/
