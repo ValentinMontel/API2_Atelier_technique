@@ -5,7 +5,7 @@ const developmentMode = false
 
 var url = "http://localhost:5000"
 if(!developmentMode){
-    url = "api-2-atelier-technique-geodecouverte.vercel.app"
+    url = "http://api-2-atelier-technique-geodecouverte.vercel.app"
 }
 
 const RADIUS = 200
