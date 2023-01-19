@@ -59,9 +59,7 @@ const dbManager = new class DbManager {
    * @returns all images were taken in the country parameter
    */
   getImageWithCountryFilter(_country){
-    return this.getAllImages().filter(image => {
-      image.country == _country
-    })
+    return this.getAllImages().filter(image => image.country == _country)
   }
 
   /**
