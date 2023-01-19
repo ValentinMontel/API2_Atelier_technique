@@ -37,6 +37,10 @@ const dbManager = new class DbManager {
       )
   }
 
+  /**
+   * 
+   * @returns all images of the database
+   */
   getAllImages(){
     return JSON.parse(fs.readFileSync('./bd.json', 'utf8'))["Images"]
   }
@@ -47,6 +51,17 @@ const dbManager = new class DbManager {
    */
   getBdSize(){
     return JSON.parse(fs.readFileSync('./bd.json', 'utf8'))["Images"].length - 1
+  }
+
+  /**
+   * 
+   * @param {String} _country 
+   * @returns all images were taken in the country parameter
+   */
+  getImageWithCountryFilter(_country){
+    return this.getAllImages().filter(image => {
+      image.country = _country
+    })
   }
 
   /**

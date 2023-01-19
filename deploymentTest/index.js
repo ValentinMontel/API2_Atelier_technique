@@ -114,13 +114,14 @@ let deployementTest = new class DeployementTest {
     }
 }
 
-
+/*
 deployementTest.addImage("mexique", datas.mexique.geometry.lat, datas.mexique.geometry.lng)
 deployementTest.addImage("inde", datas.inde.geometry.lat, datas.inde.geometry.lng)
 deployementTest.addImage("antibes", datas.antibes.geometry.lat, datas.antibes.geometry.lng)
 deployementTest.addImage("marseille", datas.marseille.geometry.lat, datas.marseille.geometry.lng)
 deployementTest.addImage("nice", datas.nice.geometry.lat, datas.nice.geometry.lng)
 deployementTest.addImage("nice2", datas.nice.geometry.lat, datas.nice.geometry.lng)
+*/
 /*deployementTest.getAll()
 deployementTest.getAllWithLatLng(datas.inde.geometry.lat, datas.inde.geometry.lng, RADIUS)
 deployementTest.searchByCity("Marseille",RADIUS)

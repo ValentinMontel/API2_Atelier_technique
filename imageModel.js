@@ -1,5 +1,8 @@
 const { v4: uuidv4 } = require('uuid')
 
+/**
+ * It is the data model for images
+ */
 class ImageModel{
     constructor(_lat, _lng, _city, _country){
         this.filename = uuidv4()

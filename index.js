@@ -56,11 +56,7 @@ API.get('/images/city_filter/:city/:radius', (req, res, next)=>{
 })
 
 API.get('/images/country_filter/:country/:radius', (req, res, next)=>{
-    dbManagerObject.AdressToLatlng(req.params.country).then(function(result){
-        const latlng = result.results[0].geometry.location
-        res.json({ images : dbManagerObject.getImagesWithLatLng(latlng.lat, latlng.lng, req.params.radius) })
-        console.log(`${req.params.country} : ${latlng.lat}, ${latlng.lng}`) 
-    })
+    res.json({ images : dbManagerObject.getImageWithCountryFilter(req.params.country)})
     //res.end()
 })
 
