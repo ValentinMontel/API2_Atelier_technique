@@ -1,7 +1,7 @@
 const fetch = require('node-fetch-commonjs')
 const fs = require('fs')
 
-const developmentMode = true
+const developmentMode = false
 
 var url = "http://localhost:5000"
 if(!developmentMode){
@@ -39,7 +39,14 @@ const datas = {
             lat : 43.5806503296,
             lng : 7.12767219543
         }
+    },
+    angers : {
+        geometry : {
+            lat : 47.478419,
+            lng : -0.563166
+        }
     }
+    
 }
 
 let deployementTest = new class DeployementTest {
@@ -116,17 +123,21 @@ let deployementTest = new class DeployementTest {
 
 deployementTest.searchByCountry("France", RADIUS)
 
-/*
+
 
 //GENERATE DATA 
 
 deployementTest.addImage("mexique", datas.mexique.geometry.lat, datas.mexique.geometry.lng)
 deployementTest.addImage("inde", datas.inde.geometry.lat, datas.inde.geometry.lng)
 deployementTest.addImage("antibes", datas.antibes.geometry.lat, datas.antibes.geometry.lng)
+deployementTest.addImage("antibes2", datas.antibes.geometry.lat, datas.antibes.geometry.lng)
+deployementTest.addImage("angers", datas.angers.geometry.lat, datas.angers.geometry.lng)
+deployementTest.addImage("angers2", datas.angers.geometry.lat, datas.angers.geometry.lng)
 deployementTest.addImage("marseille", datas.marseille.geometry.lat, datas.marseille.geometry.lng)
 deployementTest.addImage("nice", datas.nice.geometry.lat, datas.nice.geometry.lng)
 deployementTest.addImage("nice2", datas.nice.geometry.lat, datas.nice.geometry.lng)
-*/
+deployementTest.addImage("nice3", datas.nice.geometry.lat, datas.nice.geometry.lng)
+deployementTest.addImage("nice4", datas.nice.geometry.lat, datas.nice.geometry.lng)
 
 
 /*deployementTest.getAll()
