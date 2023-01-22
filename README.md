@@ -19,6 +19,8 @@ L'API est hébergé sur Vercel.
 >
 > /images/radius_filter/:lat/:lng/:radius : récupération de toutes les images avec trie par rapport à un rayon
 >
+> /admin_support : interface administrateur de gestion de contenue
+>
 > # POST
 >
 > /images/add  :  ajout d'une image à la base de donnée
