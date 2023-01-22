@@ -60,6 +60,26 @@ API.get('/images/country_filter/:country/:radius', (req, res, next)=>{
     //res.end()
 })
 
+API.get('/admin_support',(req, res, next)=>{
+     res.sendFile(__dirname + '/admin_support.html')
+})
+
+API.get('/admin_support/login/:email/:mdp',(req, res, next)=>{
+    if(req.params.email == "admin_support@geodecouverte.com" && req.params.mdp == "admin123"){
+        res.json({ reponse : true })
+    } else {
+        res.json({ reponse : false })
+    }     
+})
+
+API.get('/admin_support/delete/:id/:email/:mdp',(req, res, next)=>{
+    if(req.params.email == "admin_support@geodecouverte.com" && req.params.mdp == "admin123"){
+        res.json({ reponse : dbManagerObject.deleteImage(req.params.id)})
+    } else {
+        res.json({ reponse : "vous n'etes pas autorisé à supprimer une image" })
+    } 
+})
+
 API.listen(5000, ()=>{
     console.log("API démarrée")
 })

@@ -64,6 +64,27 @@ const dbManager = new class DbManager {
 
   /**
    * 
+   * @param {int} _id 
+   * @returns state of the process
+   */
+  deleteImage(_id){
+    let old = this.getAllImages()
+    let tmp = old.filter(image => image.id != _id)
+    if(tmp.length == old.length){
+      return "id non trouvé"
+    } else {
+      fs.writeFileSync( 
+        "./bd.json",
+        JSON.stringify({ "Images": tmp  }), 
+        (err) => { if (err) {return false}}
+      )
+      return true
+    }
+  }
+
+
+  /**
+   * 
    * @param {ImageModel} image 
    * @returns nothing
    * 
